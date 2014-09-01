@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fade</title>
+	<style type="text/css">
+
+		/*compatible for all main browers*/
+		.transparent_class 
+		{
+			filter:alpha(opacity=50);
+			-moz-opacity:0.5;
+			-khtml-opacity: 0.5;
+			opacity: 0.5;
+		}
+
+		div
+		{
+			background-color: blue;
+			height: 500px;
+			width: 500px;
+		}
+	</style>
+</head>
+<body>
+<div id="div" class="transparent_class">fade test</div>
+<script type="text/javascript">
+	(function() {
+		var div = document.getElementById("div");
+
+		window.onload = function() {
+			fadeOut(div);
+
+			setTimeout(function() {
+				fadeIn(div);
+			}, 2000);
+		}
+
+		function fadeIn(element) {
+
+			var opacity = getOpacity(div);
+
+			if (opacity < 100) {
+				//opacity increase by 10
+				opacity += 1;
+				//set opacity compatible of IE and FF
+				element.style.filter = "alpha(opacity=" + opacity + ")";
+				opacity = opacity/100;
+				element.style.opacity = opacity.toString();
+				//console.log(opacity.toString());
+				//sleep 0.5s
+				setTimeout(function() {
+					fadeIn(div);
+				}, 20);
+			} else {
+				//when opacity=100 return 
+				return;
+			}
+
+		}
+
+		function fadeOut(element) {
+
+			var opacity = getOpacity(div);
+
+			if (opacity > 0) {
+				//opacity increase by 10
+				opacity -= 1;
+				//set opacity compatible of IE and FF
+				element.style.filter = "alpha(opacity=" + opacity + ")";
+				opacity = opacity/100;
+				element.style.opacity = opacity.toString();
+				//console.log(opacity.toString());
+				//sleep 0.5s
+				setTimeout(function() {
+					fadeOut(div);
+				}, 20);
+			} else {
+				//when opacity=100 return 
+				return;
+			}
+
+		}
+
+		function getOpacity(element) {
+
+			var opacity;
+
+			if (document.defaultView) {
+				opacity = parseFloat(document.defaultView.getComputedStyle(element).opacity) * 100;
+			}
+			if (element.currentStyle) {
+				opacity = parseInt(element.currentStyle.filter.match(/opacity\=(\d+)/)[1]);
+			}
+
+			return opacity;
+		}
+
+
+	})();
+	
+</script>
+</body> 
+</html>

@@ -1,0 +1,41 @@
+.container 
+{
+	width: 800px;
+	margin: 0 auto;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+div:hover.charBlock
+{
+	background-color: #F7F7F7;
+	border: 1px solid;
+}
+
+span.span8
+{
+	font-size: 14pt;
+	color: black;
+}
+
+.italic
+{
+	font-style: italic;
+}
+
+.fl
+{
+	float: left;
+}
+
+.colorPanel
+{
+	display: inline;
+	width: 100px;
+	height: 100px;
+	border: 1px solid;
+	background-color: silver;
+}

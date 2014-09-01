@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rich Text Editor</title>
+	<link rel="stylesheet" type="text/css" href="./style/main.css">
+</head>
+<body onload="init()">
+<div class="container">
+	<div class="title">
+		<strong>Content:</strong>
+	</div>
+	<div class="content">
+		<table>
+			<tr>
+				<td>
+					<div class="toolBar">
+						<table>
+							<tr>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="选择文本颜色" onclick="setColor();">
+														<span class="span8">A</span>
+														<div id="colorBar" style="width: 12px; height: 3px; background-color: black"></div>
+														<!--<div class="fl colorPanel"></div>--> 
+												</td>
+												<td>
+													<select onchange="chooseColor(this.value);">
+														<option value="black">black</option>
+														<option value="blue">blue</option>
+														<option value="green">green</option>
+														<option value="white">white</option>
+													</select>
+												</td> 
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									 | 
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="加粗" onclick="setBold();">
+														<span class="span8">B</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="斜体" onclick="setItalic();">
+														<span class="span8 italic">I</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="下划线" onclick="setUnderline();">
+														<span class="span8">U</span>
+														<div style="width: 12px; height: 1px; background-color: black"></div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="删除线" onclick="setDeleteLine();">
+														<span class="span8">D</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									 | 
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="有序编号" onclick="setOrderList();">
+														<span class="span8">OL</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="无序编号" onclick="setNoOrderList();">
+														<span class="span8">NL</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									|
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="向前缩进" onclick="setOutdent();">
+														<span class="span8">Out</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="向后缩进" onclick="setIndent();">
+														<span class="span8">In</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="水平线" onclick="setHorizontalLine();">
+														<span class="span8">Hor</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									|
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="左对齐" onclick="setJustifyLeft();">
+														<span class="span8">L</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="居中" onclick="setJustifyCenter();">
+														<span class="span8">C</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="右对齐" onclick="setJustifyRight();">
+														<span class="span8">R</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="添加超链接" onclick="setAnchor();">
+														<span class="span8">AA</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="删除超链接" onclick="deleteAnchor();">
+														<span class="span8">DA</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									|
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="清除格式" onclick="removeformat();">
+														<span class="span8">RM</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<div class="charBlock">
+										<table>
+											<tr>
+												<td>
+													<a href="javascript:void(0)" title="插入图片" onclick="filePath();">
+														<span class="span8">IMG</span>
+												</td>
+												<input type="file" id="file" style="display: none" onchange="insertImage(this)" />
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="textarea" rows="18" cols="55" style="display: none">I'm so sorry but your brower don't support rich text editor</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<iframe id="editor" width="800px" height="600px" frameborder="1"></iframe>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<script type="text/javascript" src="../../lib/eventUtil.js"></script>
+<script type="text/javascript" src="./js/editor.js"></script>
+<script type="text/javascript">
+
+		function init() {
+
+			var editor = document.getElementById('editor'),
+				textarea = document.getElementById('textarea');
+
+			/**if brower don't support designMode,show textarea*/
+			if (editor.contentDocument.designMode == undefined) {
+				document.getElementById('textarea').style.display = "";
+				editor.style.display = "none";
+			} else {
+				//set designMode On
+				editor.contentDocument.designMode = 'on';
+			}
+		}
+
+	</script>
+</body>
+</html>

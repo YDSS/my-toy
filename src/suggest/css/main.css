@@ -1,0 +1,46 @@
+.top
+{
+	position: absolute;
+	top: 200px;
+	left: 500px;
+}
+
+.input
+{
+	width: 361px;
+}
+
+div .inner
+{
+	position: relative;
+	background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 3px #ededed;
+    position: absolute;
+    display: none;
+    width: 364px;
+    z-index: 2;
+    margin-top: 5px;
+}
+
+.inner .list
+{
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+}
+
+.inner .item
+{
+	color: #000;
+    padding: 3px 10px;
+    width: 364px;
+    font: 14px/28px arial;
+    list-style-type: none;
+}
+
+.inner .sum
+{
+	position: absolute;
+	left: 340px;
+}

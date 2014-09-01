@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>review</title>
+	<style type="text/css">
+		*
+		{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		body
+		{
+			margin-top: 10px;
+		}
+
+		div
+		{
+			background-color: #D1EEEE;
+			text-align: center;
+			font-size: 30px;
+			font-weight: bold;
+		}
+
+		.left
+		{
+			height: 250px;
+			width: 100px;
+			line-height: 250px;
+		}
+
+		.left_top
+		{
+			float: left;
+		}
+
+		.left_bottom
+		{
+			float: left;
+			clear: left;
+			position: absolute;
+			top: 270px;
+		}
+
+		.right
+		{
+			height: 510px;
+			width: 300px;
+			line-height: 510px;
+			margin-left: 110px;
+		}
+
+		.scale
+		{
+			border: 1px black solid;
+			background-color: #9BCD9B;
+		}
+	</style>
+</head>
+<body>
+	<div class="left_top left">A</div>
+	<div class="left_bottom left">B</div>
+	<div class="right">C</div>
+<script type="text/javascript">
+	var leftTop = document.getElementsByClassName("left_top")[0],
+		leftBottom = document.getElementsByClassName("left_bottom")[0],
+		rigt = document.getElementsByClassName("right")[0];
+
+	leftTop.onmouseover = function(event) {
+
+		var style = getStyle(this);
+
+		leftTop.classList.add("scale");
+		this.style.width = parseInt(style.width.replace("px", "")) * 1.25 + "px";
+		this.style.height = parseInt(style.height.replace("px", "")) * 1.25 + "px";
+		this.style.zIndex = 1;
+		this.style.position = "absolute";
+	}
+
+	leftTop.onmouseout = function(event) {
+
+		this.classList.remove("scale");
+		this.style.width = "";
+		this.style.height = "";
+	}
+
+	function getStyle(elem) {
+
+		if (elem.currentStyle) {
+			return elem.currentStyle;
+		}
+		if (document.defaultView.getComputedStyle) {
+			return document.defaultView.getComputedStyle(elem);
+		}
+		return null;
+	}
+
+	console.log(parseInt(getStyle(leftTop).width.replace("px", "")) * 1.25);
+</script>
+</body>
+</html>
